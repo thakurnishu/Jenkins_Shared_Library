@@ -1,3 +1,3 @@
 def call(){
-    sh 'go test'
+    sh '/usr/local/go/bin/go test'
 }
