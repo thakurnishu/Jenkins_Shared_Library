@@ -1,7 +1,6 @@
-def call(Map stageParams){
+def call(credentialsId){
 
-    withSonarQubeEnv(stageParams.credentialsId){
-        sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=${stageParams.projectName} \
-                    -Dsonar.projectKey=${stageParams.projectKey} '''
+    withSonarQubeEnv(credentialsId){
+        sh '$SCANNER_HOME/bin/sonar-scanner'
     }
 }
