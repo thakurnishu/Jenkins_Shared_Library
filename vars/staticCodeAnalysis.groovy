@@ -1,6 +1,6 @@
-def call(credentialsId){
+def call(Map params){
 
-    withSonarQubeEnv(credentialsId){
-        sh '$SCANNER_HOME/bin/sonar-scanner'
+    withSonarQubeEnv(params.credentialsId){
+        sh '$SCANNER_HOME/bin/sonar-scanner -Dsonar.projectKey=$params.projectKey'
     }
 }
