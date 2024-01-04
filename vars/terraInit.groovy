@@ -1,6 +1,6 @@
 def call(StorageKey){
     sh """
-        ls
+        cd AKS_Module
         terraform init \
         -backend-config="access_key=${StorageKey}"
     """
