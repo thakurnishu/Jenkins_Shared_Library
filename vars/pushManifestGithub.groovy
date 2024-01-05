@@ -1,4 +1,5 @@
 def call(Map params){
+    // Added git branch and checkout as in jenkins git run in detached state
     sh """
         git config --global user.name "${params.githubUserName}"
         git config --global user.email "${params.githubEmail}"
@@ -7,6 +8,7 @@ def call(Map params){
         git branch test
         git checkout test
     """
+    // change test -> main while push 
     withCredentials([usernamePassword(credentialsId: "${params.githubCredID}", passwordVariable: 'pass', usernameVariable: 'user')]){
         sh "git push https://$user:$pass@${params.githubURL} test:main"
     }
