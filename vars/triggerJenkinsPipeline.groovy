@@ -4,6 +4,6 @@ def call(Map params){
             -X POST -H 'cache-control: no-cache' \
             -H 'content-type: application/x-www-form-urlencoded' \
             --data 'ImageTag=${params.imageTag}' \
-            'http://${params.jenkinsIP}:${params.jenkinsPort}/job/${params.jenkinsJob}/buildWithParamters?token=${params.jenkinsJobToken}'
+            'http://${params.jenkinsIP}:${params.jenkinsPort}/job/${params.jenkinsJob}/buildWithParameters?token=${params.jenkinsJobToken}'
     """
 }
