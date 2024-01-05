@@ -1,6 +1,6 @@
 def call(){
     sh """
         cd AKS_Module
-        terraform apply "terraform.tfplan" -auto-approve
+        terraform apply -auto-approve "terraform.tfplan" 
     """
 }
