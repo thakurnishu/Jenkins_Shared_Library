@@ -5,7 +5,7 @@ def call(Map params){
         git add Manifest_Files/deployment.yml
         git commit -m "Updated Deployment Manifest with ${params.imageTag} version"
     """
-    withCredentials([usernamePassword(credentialsId: "${params.githubCredID}", passwordVariable: 'pass', usernameVariable: 'user')]){
-        sh "git push https://$user:$pass@${params.githubURL} main"
+    withCredentials([gitUsernamePassword(credentialsId: "${params.githubCredID}", gitToolName: 'Default')]){
+        sh "git push https://${params.githubURL} main"
     }
 }
