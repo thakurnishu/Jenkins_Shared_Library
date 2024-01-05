@@ -7,6 +7,6 @@ def call(Map params){
         git remote -v
     """
     withCredentials([usernamePassword(credentialsId: "${params.githubCredID}", passwordVariable: 'pass', usernameVariable: 'user')]){
-        sh "git push https://$user:$pass@${params.githubURL} main"
+        sh "git push https://$user:$pass@${params.githubURL} master:main"
     }
 }
