@@ -1,5 +1,5 @@
 def call(){
-    def isArgoCDInstalled = sh(script: 'kubectl get all -n argocd', returnStatus: true) == 0
+    def isArgoCDInstalled = sh(script: 'kubectl create namespace argocd', returnStatus: true) == 0
     if (!isArgoCDInstalled) {
         sh """"
             kubectl create namespace argocd
