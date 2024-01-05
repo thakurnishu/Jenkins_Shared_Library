@@ -3,6 +3,6 @@ def call(StorageKey){
         cd AKS_Module
         terraform init \
         -backend-config="access_key=${StorageKey}" \
-        -reconfigure -auto-approve
+        -reconfigure 
     """
 }
