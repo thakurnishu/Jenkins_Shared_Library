@@ -6,6 +6,6 @@ def call(Map params){
         git commit -m "Updated Deployment Manifest with ${params.imageTag} version"
     """
     withCredentials([usernamePassword(credentialsId: "${params.githubCredID}", passwordVariable: 'pass', usernameVariable: 'user')]){
-        sh "git push https://$user:$pass@${params.githubURL} main"
+        sh "git push https://$user:$pass@${params.githubURL} HEAD"
     }
 }
