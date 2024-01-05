@@ -4,9 +4,10 @@ def call(Map params){
         git config --global user.email "${params.githubEmail}"
         git add Manifest_Files/deployment.yml
         git commit -m "Updated Deployment Manifest with ${params.imageTag} version"
-        git branch
+        git branch test
+        git checkout test
     """
     withCredentials([usernamePassword(credentialsId: "${params.githubCredID}", passwordVariable: 'pass', usernameVariable: 'user')]){
-        sh "git push https://$user:$pass@${params.githubURL} main"
+        sh "git push https://$user:$pass@${params.githubURL} test:main"
     }
 }
