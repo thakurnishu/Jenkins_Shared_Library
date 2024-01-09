@@ -5,7 +5,7 @@ def call(String project, String userName, String imageTag, String credId){
         usernameVariable: 'USER'
     )]) {
         sh """
-            docker login -u '$USER' --password-stdin '$PASS'
+            docker login -u '$USER' -p '$PASS'
             docker image push ${userName}/${project}:${imageTag}
             docker image push ${userName}/${project}:latest
             docker rmi ${userName}/${project}:${imageTag}
